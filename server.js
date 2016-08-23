@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var middleware = require('./middleware.js');
-
+var PORT = process.env.PORT || 3000;
 
 app.use(middleware.logger);
 app.get('/',function (req,res){
@@ -17,7 +17,7 @@ app.get('/about',function(req,res) {
 });
 
 app.use(express.static(__dirname + '/public'));
-app.listen(3000, function(){
+app.listen(PORT, function(){
 
-  console.log("server running on port 3000");
+  console.log("server running on port " + PORT);
 });
